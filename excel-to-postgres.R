@@ -59,7 +59,7 @@ insert_file <- function(con, file_path, disconnect = FALSE) {
 # Retrive Excel File ------------------------------------------------------
 retrieve_file <- function(file_name, output_path, disconnect = FALSE) {
 
-  query <- paste0("SELECT file_name, file_data FROM excel_files WHERE file_name = ", file_name)
+  query <- paste0("SELECT file_name, file_data FROM ",table_name," WHERE file_name = '", file_name, "'")
   result <- dbGetQuery(con, query)
   
   if (nrow(result) > 0) {
